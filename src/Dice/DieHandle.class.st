@@ -28,3 +28,15 @@ DieHandle >> initialize [
 	super initialize.
 	dice := OrderedCollection new.
 ]
+
+{ #category : #'as yet unclassified' }
+DieHandle >> roll [
+
+	| number |
+	number := 0.
+	
+	dice do: [ :each |
+		number := number + each roll ].
+	
+	^ number
+]

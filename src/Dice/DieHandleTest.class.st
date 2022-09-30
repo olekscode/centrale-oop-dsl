@@ -17,3 +17,19 @@ DieHandleTest >> testCreateHandle [
 	
 	
 ]
+
+{ #category : #tests }
+DieHandleTest >> testRoll [
+
+	| die1 die2 handle number |
+	
+	die1 := Die withFaces: 4.
+	die2 := Die withFaces: 20.
+
+	handle := DieHandle with: { die1 . die2 }.
+	
+	number := handle roll.
+	
+	self assert: number >= 1.
+	self assert: number <= 24.
+]
